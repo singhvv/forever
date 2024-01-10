@@ -13,8 +13,8 @@ function App() {
       const windowHeight = window.innerHeight;
   
       // Calculate the range within the window for both X and Y axes
-      const rangeX = [(-windowWidth / 2 + buttonWidth / 2) + 30, (windowWidth / 2 - buttonWidth / 2) - 30];
-      const rangeY = [(-windowHeight / 2 + buttonHeight / 2) + 30, (windowHeight / 2 - buttonHeight / 2) - 30];
+      const rangeX = [(-windowWidth / 2 + buttonWidth / 2) + 80, (windowWidth / 2 - buttonWidth / 2) - 80];
+      const rangeY = [(-windowHeight / 2 + buttonHeight / 2) + 80, (windowHeight / 2 - buttonHeight / 2) - 80];
   
       // Function to generate random coordinates within the specified range
       const getRandomCoordinate = (range) => {
@@ -30,12 +30,6 @@ function App() {
       button.style.transform = `translate(${newX}px, ${newY}px)`;
     }
   };
-  
-  
-
-  const handleNoClick = () => {
-    const button = document.getElementById('no');
-  };
 
   const handleYesClick = () => {
     setGifDisplay(true);
@@ -43,30 +37,31 @@ function App() {
     buttons.forEach((button) => {
       button.style.display = 'none';
     });
-  
-    const headerText = document.querySelector('.App-header p');
-    headerText.style.marginBottom = '300px';
+    const header = document.getElementById('header');
+    header.style.display = 'none';
   }
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>Do you wanna come back to me?</p>
+        <p id="header">Do you wanna come back to me?</p>
         <div>
           <button id="yes" onClick={handleYesClick}>
             Yes
           </button>
-          {/* <button id="no" onMouseMove={handleMouseMovement} onClick={handleNoClick}> */}
           <button id="no" onMouseMove={handleMouseMovement} onClick={handleMouseMovement}>
             No
           </button>
-        </div>
+          </div>
         {gifDisplay && (
-          <img
-            src="https://media.giphy.com/media/l41lTyjL2gCWjEverr/giphy.gif"
-            alt="Cute GIF"
-            className="Cute-gif"
-          />
+          <div className="Gif-container">
+            <img
+              src="https://media.tenor.com/BuE2vjIr3swAAAAi/hearts-love.gif"
+              alt="Cute GIF"
+              className="Cute-gif"
+            />
+            <p className="Gif-text">Text me my sweaty &#60;3</p>
+          </div>
         )}
       </header>
     </div>
