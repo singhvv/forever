@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p id="header">Do you wanna come back to me?</p>
+        <p id="header">Can we try again? : &#41;</p>
         <div>
           <button id="yes" onClick={handleYesClick}>
             Yes
